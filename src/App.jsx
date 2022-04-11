@@ -7,10 +7,12 @@ function App() {
   const [over, setOver] = useState("8.2");
   const [btnDisabled, setBtnDisabled] = useState(false);
   const scoreHandler = (value) => {
-    setScore(score + value);
-    if (score >= 100) {
+    if (score > 100) {
       setBtnDisabled(true);
+      return
     }
+    setScore(score + value);
+
   };
   const wicketHandler = (value) => {
     if (wicket >= 12) {
