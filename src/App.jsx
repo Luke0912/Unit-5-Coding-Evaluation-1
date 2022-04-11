@@ -9,18 +9,25 @@ function App() {
   const scoreHandler = (value) => {
     if (score > 100) {
       setBtnDisabled(true);
-      return
+      return;
     }
     setScore(score + value);
-
   };
   const wicketHandler = (value) => {
+    if (score > 100) {
+      setBtnDisabled(true);
+      return;
+    }
     if (wicket >= 12) {
       return;
     }
     setWicket(wicket + value);
   };
   const ballHandler = (value) => {
+    if (score > 100) {
+      setBtnDisabled(true);
+      return;
+    }
     let over = Number.parseInt(ball / 6);
     let rem = ball - over * 6;
     setBall(ball + value);
